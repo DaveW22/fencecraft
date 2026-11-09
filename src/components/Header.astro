@@ -1,0 +1,18 @@
+---
+const links = [{href:'/for-your-home/',label:'For your home'},{href:'/for-parks/',label:'For parks'},{href:'/projects/',label:'Our work'},{href:'/about/',label:'Our story'}];
+const current = Astro.url.pathname;
+---
+<header class="site-header"><div class="wrap nav-row">
+  <a class="brand" href="/" aria-label="FenceCraft home"><img src="/assets/mark.svg" alt="" width="47" height="53" /><span>FenceCraft<small>GARDENS · FENCING · PARK MAINTENANCE</small></span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">Menu ☰</button>
+  <nav class="nav-links" id="primary-nav" aria-label="Main navigation">
+    {links.map((link) => <a href={link.href} aria-current={current === link.href || (link.href !== '/' && current.startsWith(link.href)) ? 'page' : undefined}>{link.label}</a>)}
+  </nav>
+  <a class="nav-phone" href="tel:+447935190681">07935 190681</a>
+  <a class="btn" href="/request-a-quote/">Let’s talk <span aria-hidden="true">↗</span></a>
+</div></header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#primary-nav');
+  toggle?.addEventListener('click', () => { const open = toggle.getAttribute('aria-expanded') === 'true'; toggle.setAttribute('aria-expanded', String(!open)); nav?.classList.toggle('open', !open); });
+</script>

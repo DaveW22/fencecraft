@@ -1,0 +1,22 @@
+---
+interface Props { park?: boolean }
+const { park = false } = Astro.props;
+---
+<form class="form-card" id="quote-form" novalidate>
+  <p class="form-note">Demo mode: this form is not connected to an enquiry endpoint yet. No information is sent or stored.</p>
+  <div class="form-grid">
+    <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required /><small class="error" id="name-error"></small></div>
+    <div class="field"><label for="postcode">Postcode</label><input id="postcode" name="postcode" autocomplete="postal-code" required /><small class="error" id="postcode-error"></small></div>
+    <div class="field"><label for="service">What can we help with?</label><select id="service" name="service" required><option value="">Please choose</option><option value="garden-fencing">Garden fencing and repairs</option><option value="glass-fencing">Glass fencing and balustrades</option><option value="decking">Timber or composite decking</option><option value="landscaping">Landscaping</option><option value="patio-paving">Patio paving</option><option value="park">Park and grounds maintenance</option><option value="caravan-painting">Static-caravan exterior painting</option><option value="groundworks">Footings and groundworks</option></select><small class="error" id="service-error"></small></div>
+    <div class="field"><label for="contact">Preferred contact</label><select id="contact" name="contact" required><option value="">Please choose</option><option>Email</option><option>Telephone</option></select><small class="error" id="contact-error"></small></div>
+    {park && <div class="field full"><label for="site-location">Park or site location</label><input id="site-location" name="site-location" required placeholder="Park name or town" /><small class="error" id="site-location-error"></small></div>}
+    {park && <div class="field"><label for="timing">Preferred timing <span class="optional">(optional)</span></label><input id="timing" name="timing" placeholder="For example, this spring" /></div>}
+    <div class="field full"><label for="description">A short description of your project</label><textarea id="description" name="description" required placeholder={park ? 'Tell us the approximate scope, access and what needs looking after.' : 'Tell us what you are considering, including any access or material details.'}></textarea><small class="error" id="description-error"></small></div>
+  </div>
+  <button class="btn" type="submit">Check my enquiry <span aria-hidden="true">↗</span></button>
+  <p id="form-status" class="form-note" role="status" hidden></p>
+</form>
+<script>
+  const form = document.querySelector<HTMLFormElement>('#quote-form');
+  form?.addEventListener('submit', (event) => { event.preventDefault(); let valid = true; form.querySelectorAll<HTMLElement>('.error').forEach((el) => el.textContent = ''); form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>('[required]').forEach((field) => { if (!field.value.trim()) { valid = false; const error = document.querySelector<HTMLElement>(`#${field.id}-error`); if (error) error.textContent = 'Please add this detail.'; } }); const status = document.querySelector<HTMLElement>('#form-status'); if (status) { status.hidden = false; status.textContent = valid ? 'Thanks — your details look ready for a real enquiry endpoint. Nothing has been sent in this preview.' : 'Please check the highlighted fields before continuing.'; } });
+</script>

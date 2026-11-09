@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { services } from '../../data/services';
+---
+<BaseLayout title="Services | FenceCraft" description="Explore FenceCraft services for gardens, homes, parks and grounds across Flintshire, Wrexham, Chester and the Wirral.">
+  <section class="wrap page-title"><p class="eyebrow">FROM SMALLER JOBS TO WIDER PLANS</p><h1>Services with practical thinking behind them.</h1><p class="intro">Tell us what needs doing, what you want the space to feel like and what matters on your site. We will help make the next step clear.</p></section>
+  <section class="section sage"><div class="wrap"><div class="services-six">{services.map((service, i) => <a href={`/services/${service.slug}/`}><span class="number">{String(i+1).padStart(2,'0')} /</span><h3>{service.title} ↗</h3><p>{service.short}</p></a>)}</div></div></section>
+  <section class="cta-band"><div class="wrap"><div><p class="eyebrow">NOT SURE WHERE TO START?</p><h2>A conversation is a good first step.</h2><p>Share the postcode and a few details. We can work out what information will help next.</p></div><a class="btn gold" href="/request-a-quote/">Request a free quote ↗</a></div></section>
+</BaseLayout>
