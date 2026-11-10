@@ -9,7 +9,7 @@ const current = Astro.url.pathname;
     {links.map((link) => <a href={link.href} aria-current={current === link.href || (link.href !== '/' && current.startsWith(link.href)) ? 'page' : undefined}>{link.label}</a>)}
   </nav>
   <a class="nav-phone" href="tel:+447935190681">07935 190681</a>
-  <a class="btn" href="/request-a-quote/">Let’s talk <span aria-hidden="true">↗</span></a>
+  <a class="btn" href="/request-a-quote/">Request a free quote <span aria-hidden="true">↗</span></a>
 </div></header>
 <script>
   const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');

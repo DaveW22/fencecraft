@@ -3,7 +3,8 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 interface Props { title: string; description: string; canonical?: string; noindex?: boolean; }
-const { title, description, canonical, noindex = true } = Astro.props;
+const isIndexableBuild = import.meta.env.PUBLIC_SITE_ENV === 'production';
+const { title, description, canonical, noindex = !isIndexableBuild } = Astro.props;
 const canonicalUrl = canonical ? new URL(canonical, Astro.site) : Astro.url;
 ---
 <!doctype html>
@@ -18,15 +19,14 @@ const canonicalUrl = canonical ? new URL(canonical, Astro.site) : Astro.url;
     <meta name="theme-color" content="#1f3529" />
     <link rel="icon" type="image/svg+xml" href="/assets/mark.svg" />
     <script type="application/ld+json" set:html={JSON.stringify({
-      '@context':'https://schema.org', '@type':'HomeAndConstructionBusiness', name:'FenceCraft', url:'https://www.fence-craft.co.uk', telephone:'+447935190681', email:'info@fence-craft.co.uk', areaServed:['Flintshire','Wrexham','Chester','Wirral'], description
+      '@context':'https://schema.org', '@type':'HomeAndConstructionBusiness', name:'FenceCraft', url:'https://fence-craft.co.uk', telephone:'+447935190681', email:'info@fence-craft.co.uk', areaServed:['Flintshire','Wrexham','Chester','Wirral'], description
     })} />
   </head>
   <body>
     <a class="skip" href="#main">Skip to main content</a>
-    <div class="concept-bar">HERITAGE CRAFT · ILLUSTRATIVE PREVIEW <a href="/privacy/">Content and privacy note ↗</a></div>
     <Header />
     <main id="main"><slot /></main>
     <Footer />
-    <div class="mobile-cta" aria-label="Quick contact"><a class="btn outline" href="tel:+447935190681">Call FenceCraft</a><a class="btn" href="/request-a-quote/">Let’s talk ↗</a></div>
+    <div class="mobile-cta" aria-label="Quick contact"><a class="btn outline" href="tel:+447935190681">Call FenceCraft</a><a class="btn" href="/request-a-quote/">Request a free quote ↗</a></div>
   </body>
 </html>
