@@ -4,7 +4,7 @@ const { park = false } = Astro.props;
 const endpoint = import.meta.env.PUBLIC_ENQUIRY_ENDPOINT ?? '';
 ---
 <form class="form-card" id="quote-form" method="post" action={endpoint || undefined} data-endpoint={endpoint} novalidate>
-  {endpoint ? <p class="form-note">Your enquiry will be sent securely to FenceCraft for a response.</p> : <p class="form-note"><strong>Online enquiries are being connected.</strong> Please call <a href="tel:+447935190681">07935 190681</a> or email <a href="mailto:info@fence-craft.co.uk">info@fence-craft.co.uk</a> for a direct response.</p>}
+  {endpoint ? <p class="form-note">Your enquiry will be sent securely to FenceCraft for a response.</p> : <p class="form-note"><strong>Online enquiries are currently unavailable.</strong> Please call <a href="tel:+447935190681">07935 190681</a> or email <a href="mailto:info@fence-craft.co.uk">info@fence-craft.co.uk</a> for a direct response.</p>}
   <div class="form-grid">
     <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required /><small class="error" id="name-error"></small></div>
     <div class="field"><label for="postcode">Postcode</label><input id="postcode" name="postcode" autocomplete="postal-code" required /><small class="error" id="postcode-error"></small></div>
