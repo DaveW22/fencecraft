@@ -1,0 +1,18 @@
+---
+interface Props {
+  park?: boolean;
+}
+
+const { park = false } = Astro.props;
+---
+
+<div class="contact-fallback" aria-label="Quote contact options">
+  <p class="eyebrow">LET’S TALK</p>
+  <h3>Call or email for a free quote.</h3>
+  <p>Include your postcode, the work you need and a preferred contact number.</p>
+  {park && <p>For park enquiries, also include the park location, approximate scope and preferred timing.</p>}
+  <div class="quote-actions">
+    <a class="btn" href="tel:+447935190681">Call for a free quote</a>
+    <a class="btn outline" href="mailto:info@fence-craft.co.uk">Email us about your project</a>
+  </div>
+</div>

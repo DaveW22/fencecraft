@@ -1,9 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import QuoteForm from '../components/QuoteForm.astro';
+import ContactFallback from '../components/ContactFallback.astro';
 const isPark = Astro.url.searchParams.get('project') === 'park';
+const enquiryEndpoint = import.meta.env.PUBLIC_ENQUIRY_ENDPOINT ?? '';
+const enquiryVerified = Boolean(enquiryEndpoint && import.meta.env.PUBLIC_ENQUIRY_VERIFIED === 'true');
 ---
 <BaseLayout title="Request a Quote | FenceCraft" description="Request a free, no-obligation FenceCraft quote. Share your name, postcode, service, project details and preferred contact method.">
-  <section class="wrap page-title"><p class="eyebrow">REQUEST A FREE QUOTE</p><h1>Tell us what you have in mind.</h1><p class="intro">A few details are enough to start. If online delivery is unavailable, call or email and your enquiry can still reach FenceCraft directly.</p></section>
-  <section class="section sage"><div class="wrap quote-layout"><div><p class="eyebrow">WHAT TO INCLUDE</p><h2>A useful starting point.</h2><p class="muted">Name, postcode, service, a short project description and one preferred contact method. For a park enquiry, include the site location, approximate scope and preferred timing.</p><div class="side-contact"><a href="tel:+447935190681">07935 190681</a><a href="mailto:info@fence-craft.co.uk">info@fence-craft.co.uk</a></div></div><QuoteForm park={isPark} /></div></section>
+  <section class="wrap page-title"><p class="eyebrow">REQUEST A FREE QUOTE</p><h1>Tell us what you have in mind.</h1><p class="intro">Call or email FenceCraft with your postcode, the work you need and a preferred contact number. For a park enquiry, include the park location, approximate scope and preferred timing.</p></section>
+  <section class="section sage"><div class="wrap quote-layout"><div><p class="eyebrow">WHAT TO INCLUDE</p><h2>A useful starting point.</h2><p class="muted">Name, postcode, service, a short project description and one preferred contact method. For a park enquiry, include the site location, approximate scope and preferred timing.</p><div class="side-contact"><a href="tel:+447935190681">07935 190681</a><a href="mailto:info@fence-craft.co.uk">info@fence-craft.co.uk</a></div></div>{enquiryVerified ? <QuoteForm park={isPark} /> : <ContactFallback park={isPark} />}</div></section>
 </BaseLayout>

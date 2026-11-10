@@ -15,7 +15,7 @@ npm run preview   # serve the production build locally
 ## Structure
 
 - `src/layouts/BaseLayout.astro` owns document metadata, canonical URLs and shared chrome.
-- `src/components/` contains the header, footer and demo-safe quote form.
+- `src/components/` contains the header, footer, contact fallback and quote form source.
 - `src/data/services.ts` is the single source for service page content and static route generation.
 - `src/data/caseStudies.ts` is the approval gate for verified garden and park project stories.
 - `src/pages/` contains public routes; Astro generates static HTML for every page.

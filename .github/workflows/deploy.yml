@@ -34,6 +34,7 @@ jobs:
         env:
           PUBLIC_SITE_ENV: production
           PUBLIC_ENQUIRY_ENDPOINT: ${{ vars.PUBLIC_ENQUIRY_ENDPOINT }}
+          PUBLIC_ENQUIRY_VERIFIED: ${{ vars.PUBLIC_ENQUIRY_VERIFIED }}
         run: npm run build
 
       - name: Upload Pages artifact
