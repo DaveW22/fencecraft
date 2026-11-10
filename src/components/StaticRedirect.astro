@@ -1,0 +1,26 @@
+---
+interface Props {
+  destination: string;
+}
+
+const { destination } = Astro.props;
+const canonical = new URL(destination, Astro.site ?? 'https://fence-craft.co.uk');
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="refresh" content={`0;url=${destination}`} />
+    <meta name="robots" content="noindex,follow" />
+    <link rel="canonical" href={canonical.href} />
+    <title>Moving to FenceCraft</title>
+  </head>
+  <body>
+    <main>
+      <h1>This page has moved</h1>
+      <p>You are being taken to the new FenceCraft page.</p>
+      <p><a href={destination}>Continue to the new page</a></p>
+    </main>
+  </body>
+</html>

@@ -1,12 +1,12 @@
-export type Service = { slug: string; title: string; searchTitle: string; description: string; short: string; intro: string; asks: { title: string; detail: string }[]; quote: string[]; next: string };
+export type Service = { slug: string; title: string; searchTitle: string; description: string; short: string; intro: string; asks: { title: string; detail: string }[]; quote: string[]; quoteDescriptions?: string[]; next: string };
 export const services: Service[] = [
   { slug:'garden-fencing', title:'Garden fencing & repairs', searchTitle:'Garden Fence Installation & Repairs', description:'Need a new garden fence or a repair? Ask FenceCraft about timber fencing, replacement panels, posts and gates in Flintshire, Wrexham, Chester and Wirral.', short:'Privacy, character and a boundary that suits your garden.', intro:'A well-made fence gives a garden definition, privacy and a calmer feeling. We can talk through a new boundary, a repair, or a small change that makes the whole space work better.', asks:[
-    { title: 'New timber boundaries and gates', detail: 'Plan a new timber fence and gate around the boundary, the privacy you need and how you use the garden.' },
+    { title: 'New timber boundaries and gates', detail: 'Tell us the boundary length, preferred height, access points and whether you need a gate included.' },
     { title: 'Repairing posts, panels and rails', detail: 'If a panel is damaged but the posts are sound, replacing that section may be possible. A leaning fence needs the posts and their bases checked first.' },
     { title: 'Privacy, screening and practical access', detail: 'Discuss where you want screening and where you need a clear route for bins, garden equipment or day-to-day access.' },
-    { title: 'A clear conversation about materials and finish', detail: 'Compare panel styles, heights and finishes with the conditions along the boundary in mind.' }
-  ], quote:['The length and height of the boundary','Ground conditions, access and removal of old materials','The style of timber, gate details and finishing'], next:'Share your postcode, a few measurements if you have them, and a photo or short description. A visit may be useful before a quotation.' },
-  { slug:'glass-fencing', title:'Glass fencing & balustrades', searchTitle:'Glass Balustrade Installation & Glass Fencing', description:'Plan glass balustrades for decks, patios and park homes. Discuss layout, fixing points and glass fencing installation with FenceCraft.', short:'A clear outlook for decks, terraces and outside spaces.', intro:'Glass can keep an outside space feeling open while giving a deck, terrace or raised edge a defined finish. We will discuss the setting, access and the practical details with you.', asks:[
+    { title: 'A clear conversation about materials and finish', detail: 'Tell us the timber style, gate details and finish you have in mind so we can discuss options for your space and budget.' }
+  ], quote:['The length and height of the boundary','Ground conditions, access and removal of old materials','The style of timber, gate details and finishing'], quoteDescriptions:['Rough measurements help us work out how much fencing is involved and where the work starts and finishes.','A leaning fence may need its posts and ground checked. Access and removal affect the work needed.','The panel style, timber treatment, gate hardware and finish help us agree the scope.'], next:'Share your postcode, a few measurements if you have them, and a photo or short description. A visit may be useful before a quotation.' },
+  { slug:'glass-fencing', title:'Glass fencing & balustrades', searchTitle:'Glass Balustrade Installation & Glass Fencing', description:'Ask FenceCraft about outdoor glass balustrade installation for decking, patios and park homes in Wrexham, Flintshire, Chester and Wirral.', short:'A clear outlook for decks, terraces and outside spaces.', intro:'FenceCraft installs outdoor glass balustrades and glass fencing for decks, terraces and park homes. Share your postcode, the length of the edge and what the glass would fix to so we can discuss suitable options.', asks:[
     { title: 'Frameless or supported glass ideas', detail: 'Discuss the look you prefer and whether the underlying structure can take the fixings the system requires.' },
     { title: 'Balustrades for decks and raised areas', detail: 'For a raised deck, share photos of the edge and the change in level so the use and support can be assessed.' },
     { title: 'A clear edge around a view or patio', detail: 'Work out which edges need a barrier and where you want to keep the outlook clear.' },
@@ -47,5 +47,25 @@ export const services: Service[] = [
     { title: 'Ground preparation for outdoor structures', detail: 'Explain what will sit above the groundworks and whether there is an existing base to remove.' },
     { title: 'Level changes and practical site work', detail: 'Flag slopes, uneven ground and narrow access so these can be considered early.' },
     { title: 'Clear scope before work begins', detail: 'Clarify who is responsible for each stage and what must be ready before the next work starts.' }
-  ], quote:['Ground conditions and levels','Access for preparation and removal','The structure or finish the groundworks support'], next:'Describe what you are building, the site location and any known access or ground issues. A site visit may be needed to understand the conditions.' }
+  ], quote:['Ground conditions and levels','Access for preparation and removal','The structure or finish the groundworks support'], next:'Describe what you are building, the site location and any known access or ground issues. A site visit may be needed to understand the conditions.' },
+  {
+    slug: 'garden-brick-walls',
+    title: 'Garden brick walls',
+    searchTitle: 'Garden Brick Wall Construction',
+    description: 'Ask FenceCraft about simple brick walls for gardens, including low borders and decorative divides. Share your postcode, dimensions and photos for a quote.',
+    short: 'Simple brick walls for garden borders and divides.',
+    intro: 'FenceCraft builds simple brick walls for gardens. A low wall can define a planting area or separate a patio from the rest of the garden. We take on non-structural garden brickwork, with the scope agreed for your space.',
+    asks: [
+      { title: 'Low garden borders', detail: 'Tell us where you want a low brick edge and how it will meet existing paving or lawn.' },
+      { title: 'Decorative divides', detail: 'Discuss a simple wall between parts of the garden, along with the height, brick colour and finish you prefer.' },
+      { title: 'Brickwork alongside other garden work', detail: 'If the wall is part of a fencing, paving or landscaping project, share the whole layout so the work can be discussed together.' },
+    ],
+    quote: [
+      'Approximate wall length, height and position',
+      'Access to the garden and what is already on the ground',
+      'Preferred brick and finish, including any existing brickwork to match',
+    ],
+    next: 'Send your postcode, photos and rough dimensions. Tell us if the wall would hold back soil or support anything so we can confirm whether the job is within our scope.',
+  },
+
 ];

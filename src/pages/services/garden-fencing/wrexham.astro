@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const title = 'Fencing Contractor in Wrexham | FenceCraft';
+const description = 'Looking for a fencing contractor in Wrexham? Ask FenceCraft about new timber garden fences, replacement panels, repairs and gates. Free quotations.';
+const quoteLink = '/request-a-quote/?service=garden-fencing';
+---
+<BaseLayout title={title} description={description} serviceName="Garden fencing installation and repairs" serviceArea="Wrexham">
+  <div class="wrap breadcrumbs"><a href="/services/">Services</a> / <a href="/services/garden-fencing/">Garden fencing</a> / Wrexham</div>
+
+  <section class="wrap page-title">
+    <p class="eyebrow">GARDEN FENCING IN WREXHAM</p>
+    <h1>Fencing contractor in Wrexham</h1>
+    <p class="intro">FenceCraft fits timber garden fencing and gates and repairs existing boundaries in the Wrexham area. Whether you need more privacy, a replacement fence or a gate that makes access easier, send us the postcode and a few details for a free quote.</p>
+    <div class="hero-actions">
+      <a class="btn" href={quoteLink}>Request a free fencing quote ↗</a>
+      <a class="text-link" href="tel:+447935190681">Call 07935 190681</a>
+    </div>
+  </section>
+
+  <section class="section sage">
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">FENCES AND GATES</p>
+        <h2>Plan the boundary around how you use it</h2>
+        <p>If you’re replacing a fence, tell us which sections you want to keep and whether you need the old panels removed. For a new fence line, a rough sketch showing where it starts and ends can help.</p>
+        <p>If the run includes a gate, tell us what needs to fit through it and which way it should open. Flag steps, changes in level or a narrow side passage early, as these can affect the fence layout and access for the work.</p>
+      </div>
+      <div class="callout">
+        <h3>Getting a quote</h3>
+        <p>Share the Wrexham postcode, approximate length and height, and photos of the boundary and the route into the garden if available. Let us know whether the enquiry is for a house, a park home or a managed park.</p>
+        <a class="text-link" href="/services/garden-fencing/">See fencing and repair options ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap faq-layout">
+      <div><h2>Questions about Wrexham fencing</h2></div>
+      <div>
+        <details><summary>Can I get a quote for a fence and a gate together?</summary><p>Yes. Tell us where the gate needs to go and how you want to use it. We can discuss it alongside the height and style of the fence.</p></details>
+        <details><summary>Can you look at a fence that’s already leaning?</summary><p>Tell us which section is affected and whether the movement is at the post base or between posts. Photos can help us decide what needs checking before quoting.</p></details>
+        <details><summary>Is the fencing for a park rather than a house?</summary><p>Include the park location and any access or timing requirements. FenceCraft has worked for Wyldecrest Parks in Wrexham and Flintshire for over 20 years. See <a href="/for-parks/">our park services</a> for wider site work.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <div><p class="eyebrow">FREE, NO-OBLIGATION QUOTATIONS</p><h2>Tell us about your fence</h2></div>
+      <a class="btn gold" href={quoteLink}>Request a free quote ↗</a>
+    </div>
+  </section>
+</BaseLayout>
